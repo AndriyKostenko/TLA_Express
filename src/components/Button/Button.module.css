@@ -1,0 +1,13 @@
+.navButton {
+    background-color: #117342;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navButton:hover {
+    background-color: #af812b;
+  }

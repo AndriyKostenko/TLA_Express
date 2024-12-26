@@ -1,0 +1,68 @@
+.aboutSection {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    max-height: 1200px;
+  }
+  
+  .randomAreas {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1; /* Ensure areas are behind the content */
+  }
+  
+  .randomArea {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-color: rgba(0, 119, 204, 0.6);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Random shape */
+  }
+  
+  .area1 {
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 119, 204, 0.2); /* Light blue with low opacity */
+    clip-path: polygon(0% 100%, 10% 80%, 20% 90%, 30% 70%, 40% 80%, 50% 60%, 60% 70%, 70% 60%, 80% 70%, 90% 50%, 100% 60%, 100% 100%); /* Wave pattern */
+  }
+  
+  .area2 {
+    top: 60px;
+    left: 50px;
+    background-color: rgba(0, 119, 204, 0.6); /* Darker blue with higher opacity */
+    clip-path: polygon(0% 0%, 80% 0%, 100% 40%, 50% 100%, 0% 60%); /* Another random polygon */
+  }
+  
+  .about-image {
+    width: 200px;
+    height: auto;
+    margin-top: 50px;
+  }
+  
+  .about-description {
+    margin-top: 20px;
+    font-size: 16px;
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .hire-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .hire-button:hover {
+    background-color: #005f99;
+  }
+  
