@@ -1,23 +1,29 @@
 import { Header } from '../components/Header/Header';
-import { AboutSection } from '../components/AboutSection/AboutSection';
+import { HeroSection } from '../components/HeroSection/HeroSection';
+// import { AboutSection } from '../components/AboutSection/AboutSection';
+
+
+
 
 export default function Home() {
 	return (
-		<>
+		<div className="grid-container">
 
-			<Header/>
+			<Header className="header"/>
+			
 		
-			<main>
-				<AboutSection/>
+			
+			<HeroSection className="hero"/>
 
-				{/* <WhyWorkingWithUsSection/>
-				<OurServicesSection/>
-				<FormSection/>  */}
-			</main>
+			{/* <AboutSection className="about"/> */}
+
+				{/* <OurServicesSection/>
+				<FormSection/>   */}
+			
 
 			{/* <Footer/> */}
 
 
-		</>
+		</div>
 	);
 }

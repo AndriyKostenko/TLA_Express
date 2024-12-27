@@ -1,17 +1,22 @@
 /* styles/Header.module.css */
 .header {
-    display: grid;
-    grid-template-columns: auto 1fr; /* logo in the first column, nav in the second */
-    align-items: center; /* center the items vertically */
-    background-color: var(--background);
-    padding: 1rem 2rem; /* adding padding around the header */
-    gap: 1rem; /* adding space between the logo and the nav */
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo in the first column, nav in the second */
+  align-items: center; /* center the items vertically */
+  padding: 0rem 2rem; /* adding padding around the header */
+  gap: 1rem; /* adding space between the logo and the nav */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
   }
 
 .logoContainer {
   display: flex;
+  justify-content: center;
   align-items: center;
-  }
+  padding-right: 25%;
+}
   
 
 

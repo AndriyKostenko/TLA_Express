@@ -1,0 +1,68 @@
+.heroSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px;
+} 
+
+
+.heroTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 0 2rem;
+}
+
+.heroTitle h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.heroTitle h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.heroImages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.heroImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+
+}
+
+.heroImage1 {
+    z-index: 1;
+    width: 120%;
+}
+
+.heroImage2 {
+    z-index: 2;
+    width: 150%;
+    left: -50%;
+    top: 10%;
+}
+
+.heroImage3 {
+    z-index: 3;
+    width: 150%;
+    left: -70%;
+    top: 10%;
+}
+
+.heroButton {
+    padding-top: 1rem;
+}
+

@@ -4,12 +4,12 @@ import { Button } from '../Button/Button';
 
 export const Navbar = () => {
 
-    const buttons = ['About Us', 'Career', 'News', 'Contact Us'];
+    const buttons = ['Home', 'About Us', 'Contact Us'];
 
     return (
         <nav className={navStyles.nav}>
             {buttons.map((button, index) => (
-                <Button title={button} className={buttonStyles.navButton} key={index}/>
+                <Button title={button} className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonWithoutBorder}`} key={index}/>
             ))}
         </nav>
     )

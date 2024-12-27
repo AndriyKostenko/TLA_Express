@@ -1,13 +1,19 @@
-.navButton {
-    background-color: #117342;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
+.mainButton {
+  border: 1px solid black;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 100px;
+  max-width: 200px;
+  max-height: fit-content;
+}
+
+.mainButtonWithoutBorder {
+  border: none;
+}
   
-  .navButton:hover {
+.mainButton:hover {
     background-color: #af812b;
-  }
+}

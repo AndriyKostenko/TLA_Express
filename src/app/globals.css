@@ -1,6 +1,7 @@
 :root {
   --background: #f2fbf6;
-  --foreground: #171717;
+  --main-color: #117342;
+  --secondary-color: #af812b;
 }
 
 
@@ -12,8 +13,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  /* color: var(--main-color);
+  background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,6 +24,7 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-size: 1rem;
 }
 
 a {
@@ -31,9 +33,32 @@ a {
 }
 
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.grid-container {
+  display: grid;
+  grid-template-areas:
+      "header header header"
+      "hero hero hero"
+      "about about about"
+      "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.about {
+  grid-area: about;
+}
+
+.footer {
+  grid-area: footer;
 }
 
