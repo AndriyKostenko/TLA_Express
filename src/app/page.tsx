@@ -10,19 +10,15 @@ export default function Home() {
 		<div className="grid-container">
 
 			<Header className="header"/>
-			
 		
+			<main>
+				<HeroSection className="hero"/>
+				{/* <AboutSection className="about"/> 
+				<OurServicesSection/>
+				<FormSection/> */}
+			</main>  
 			
-			<HeroSection className="hero"/>
-
-			{/* <AboutSection className="about"/> */}
-
-				{/* <OurServicesSection/>
-				<FormSection/>   */}
-			
-
 			{/* <Footer/> */}
-
 
 		</div>
 	);

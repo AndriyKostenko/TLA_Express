@@ -1,68 +1,163 @@
 .heroSection {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px;
-} 
+    grid-template-areas:
+        "left right";
+    grid-template-columns: 0.7fr 1.3fr;
+    height: 100%;
+    padding-top: 2rem;
+    gap: 2rem;
+}
 
-
-.heroTitle {
+.heroLeft {
+    grid-area: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
+    align-items: flex-start;
     padding: 0 2rem;
 }
 
-.heroTitle h1 {
-    font-size: 3.5rem;
-    font-weight: 600;
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.heroTitle h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.heroImages {
+.heroRight {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
     position: relative;
     width: 100%;
     height: 100%;
 }
 
+
+
+.heroLeft h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.heroLeft h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.heroLeft p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+
+
 .heroImage {
     position: absolute;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     width: 100%;
-    height: auto;
+    height: 100%;
 
 }
 
 .heroImage1 {
     z-index: 1;
-    width: 120%;
 }
 
 .heroImage2 {
     z-index: 2;
-    width: 150%;
-    left: -50%;
-    top: 10%;
 }
 
 .heroImage3 {
     z-index: 3;
-    width: 150%;
-    left: -70%;
-    top: 10%;
 }
 
 .heroButton {
     padding-top: 1rem;
 }
 
+
+
+@media (max-width: 1024px) {
+    .heroSection {
+        grid-template-areas: 
+            "right"
+            "left";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .heroLeft h1 {
+        font-size: 2rem;
+    }
+
+    .heroLeft h2 {
+        font-size: 2rem;
+    }
+
+    .heroLeft p {
+        font-size: 1.25rem;
+    }
+
+
+
+    
+
+
+    
+}
+
+
+@media (max-width: 768px) {
+    .heroSection {
+        grid-template-areas: 
+            "right"
+            "left";
+        grid-template-columns: 1fr;
+    }
+
+  
+
+    .heroImage {
+        position: static;
+        width: 80%;
+        height: auto;
+    }
+
+    .heroLeft h1 {
+        font-size: 2.5rem;
+    }
+
+    .heroLeft h2 {
+        font-size: 1.5rem;
+    }
+
+    .heroLeft p {
+        font-size: 1rem;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .heroLeft h1 {
+        font-size: 2rem;
+    }
+
+    .heroLeft h2 {
+        font-size: 1.5rem;
+    }
+
+    .heroLeft p {
+        font-size: 0.875rem;
+    }
+
+    .reroButton {
+        padding-top: 0.5rem;
+    }
+
+    .heroImage {
+        width: 90%;
+    }
+}

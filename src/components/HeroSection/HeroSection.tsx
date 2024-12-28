@@ -20,7 +20,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
 
     return (
         <section className={`${className} ${styles.heroSection}`}>
-            <div className={styles.heroTitle}>
+            <div className={styles.heroLeft}>
                 <h1>
                     TLA Express Inc.
                    
@@ -41,18 +41,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
                 
             </div>
     
-            <div className={styles.heroImages}>
-            <div className={`${styles.heroImage} ${styles.heroImage1}`}>
-                <Image src={heroImage1} alt="Hero Image 1" layout='responsive' />
-            </div>
-            <div
-                className={`${styles.heroImage} ${styles.heroImage2} `}
-            >
-                <Image src={heroImage2} alt="Hero Image 2" layout='responsive' />
-            </div>
-            <div className={`${styles.heroImage} ${styles.heroImage3}`}>
-                <Image src={heroImage3} alt="Hero Image 3" layout='responsive' />
-            </div>
+            <div className={styles.heroRight}>
+                <div className={`${styles.heroImage} ${styles.heroImage1}`}>
+                    <Image src={heroImage1} alt="Hero Image 1" fill style={{objectFit: 'contain'}}/>
+                </div>
+                <div className={`${styles.heroImage} ${styles.heroImage2} `}>
+                    <Image src={heroImage2} alt="Hero Image 2" fill style={{objectFit: 'contain'}}/>
+                </div>
+                <div className={`${styles.heroImage} ${styles.heroImage3}`}>
+                    <Image src={heroImage3} alt="Hero Image 3" fill style={{objectFit: 'contain'}}/>
+                </div>
             </div>
       </section>
     )
