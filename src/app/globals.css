@@ -36,13 +36,12 @@ a {
 .grid-container {
   display: grid;
   grid-template-areas:
-      "header header header"
-      "hero hero hero"
-      "about about about"
-      "footer footer footer";
-  grid-template-rows: auto 1fr auto;
+      "header"
+      "hero"
+      "about";
+  grid-template-rows: auto 1fr auto auto;
   grid-template-columns: 1fr;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .header {
@@ -52,13 +51,13 @@ a {
 
 .hero {
   grid-area: hero;
+  padding: 1rem;
 }
 
 .about {
   grid-area: about;
+  padding: 1rem;
 }
 
-.footer {
-  grid-area: footer;
-}
+
 

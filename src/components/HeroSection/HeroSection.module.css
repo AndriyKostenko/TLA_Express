@@ -4,8 +4,8 @@
         "left right";
     grid-template-columns: 0.7fr 1.3fr;
     height: 100%;
-    padding-top: 2rem;
-    gap: 2rem;
+    padding:0 1rem;
+    gap: 1rem;
 }
 
 .heroLeft {
@@ -48,15 +48,12 @@
 .heroLeft p {
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 1rem;
 }
 
 
 
 .heroImage {
     position: absolute;
-    /* top: 0;
-    left: 0; */
     width: 100%;
     height: 100%;
 

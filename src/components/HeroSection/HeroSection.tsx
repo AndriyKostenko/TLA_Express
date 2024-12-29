@@ -36,7 +36,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
                     with on time delivery and great customer service.
                 </p>
                 <div className={styles.heroButton}>
-                    <Button className={buttonStyles.mainButton} title='Apply Now'/>
+                    <Button className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} title='Apply Now'/>
                 </div>
                 
             </div>

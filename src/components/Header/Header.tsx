@@ -40,26 +40,26 @@ export const Header: React.FC<HeaderProps> = ({className}) => {
             &times;
           </button>
           
-          <Navbar isSidebar={true}/>
+          <Navbar isSidebar={isSideBarOpen}/>
 
-          <Button title="Apply" className={buttonStyles.mainButton} />
+          <Button title="Apply" className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} />
 
         </div>
       )}
 
       {/* Main navbar */}
       <nav className={headerStyles.navbar}>
-        <Navbar isSidebar={false}/>
+        <Navbar isSidebar={isSideBarOpen}/>
       </nav>
       
       {/* logo */}
       <div className={headerStyles.logoContainer}>
-        <Image src={logoImg} alt="logo" width={150} height={150} />
+        <Image src={logoImg} alt="logo" width={100} height={100} />
       </div>
 
       {/* Button */}
       <div className={headerStyles.buttonContainer}>
-        <Button title="Apply" className={`${buttonStyles.mainButton}`} />
+        <Button title="Apply" className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} />
       </div>
 
       
