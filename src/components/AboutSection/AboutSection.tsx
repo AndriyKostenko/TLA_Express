@@ -1,4 +1,4 @@
-import aboutImg from "../../../public/delivery-car-van.jpg";
+import aboutImg from "../../../public/delivery-car-van-modified.png";
 import aboutStyles from "./AboutSection.module.css";
 import Image from 'next/image';
 import icon1 from "../../../public/icon1.png";
@@ -11,8 +11,7 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({className}) => {
     return (
-        <section className={className}>
-            <div className={aboutStyles.aboutSection}>
+        <section className={`${className}  ${aboutStyles.aboutSection}`}>
                 <div className={aboutStyles.leftSide} >
                     <div className={aboutStyles.mainImageContainer}>
                         <Image src={aboutImg} 
@@ -26,7 +25,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({className}) => {
 
                 <div className={aboutStyles.rightSide}>
                     <h2>Our Partnership with Amazaon for Last Mile Solutions</h2>
-                    <p>TAt TLA Express, we take pride in our collaboration with Amazon, 
+                    <p>At TLA Express, we take pride in our collaboration with Amazon, 
                         ensuring timely and efficient deliveries. 
                         Our dedicated team is committed to providing exceptional service at every step of 
                         the delivery process. 
@@ -49,11 +48,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({className}) => {
                         <h3>Customer Focused</h3>
                         <p>We prioritize your satisfaction, ensuring a seamless delivery experience with every order.</p>
                     </div>
-
                 </div>
-
-            </div>
-            
         </section>
     )
 }

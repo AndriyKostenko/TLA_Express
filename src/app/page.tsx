@@ -7,13 +7,13 @@ import { AboutSection } from '../components/AboutSection/AboutSection';
 
 export default function Home() {
 	return (
-		<div className="grid-container">
+		<div className="container">
 
-			<Header className="header"/>
+			<Header className="container"/>
 		
 			<main>
-				<HeroSection className="hero"/>
-				<AboutSection className="about"/> 
+				<HeroSection/>
+				<AboutSection/> 
 				{/* <OurServicesSection/>
 				<FormSection/> */}
 			</main>  

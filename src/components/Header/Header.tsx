@@ -8,12 +8,12 @@ import { Navbar } from "../NavBar/Navbar";
 import { Button } from "../Button/Button";
 import { useState } from "react";
 
+
 interface HeaderProps {
-	className?: string;
+  className?: string;
 }
 
-
-export const Header: React.FC<HeaderProps> = ({className}) => {
+export const Header:React.FC<HeaderProps> = ({className}) => {
 
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 

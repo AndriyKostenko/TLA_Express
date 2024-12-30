@@ -2,6 +2,10 @@
   --background: #f2fbf6;
   --main-color: #117342;
   --secondary-color: #af812b;
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.17rem;
+  --p-font-size: 1rem;
 }
 
 
@@ -33,31 +37,38 @@ a {
 }
 
 
-.grid-container {
-  display: grid;
-  grid-template-areas:
-      "header"
-      "hero"
-      "about";
-  grid-template-rows: auto 1fr auto auto;
-  grid-template-columns: 1fr;
-  min-height: 100vh;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.header {
-  grid-area: header;
 
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
 }
 
-.hero {
-  grid-area: hero;
-  padding: 1rem;
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; 
+    padding: 0 10px;
+  }
 }
 
-.about {
-  grid-area: about;
-  padding: 1rem;
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
 }
+
+
+
 
 
 

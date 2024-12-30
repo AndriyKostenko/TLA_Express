@@ -29,7 +29,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
                 <h2>
                     Delivery Service Partner with Amazon.
                 </h2>
-                <br />
+                <br/>
                 <p>
                     We are the last mile delivery company operating in Calgary. 
                     Our experienced team provides positive last mile delivery experience 
