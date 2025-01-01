@@ -1,6 +1,7 @@
 import { Header } from '../components/Header/Header';
 import { HeroSection } from '../components/HeroSection/HeroSection';
 import { AboutSection } from '../components/AboutSection/AboutSection';
+import { OurTeamSection } from '../components/OurTeamSection/OurTeamSection';
 
 
 
@@ -14,8 +15,8 @@ export default function Home() {
 			<main>
 				<HeroSection/>
 				<AboutSection/> 
-				{/* <OurServicesSection/>
-				<FormSection/> */}
+				<OurTeamSection/>
+				{/* <FormSection/> */}
 			</main>  
 			
 			{/* <Footer/> */}

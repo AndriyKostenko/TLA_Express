@@ -25,6 +25,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  left: -5%;
 }
 
 .buttonContainer{
@@ -132,7 +134,7 @@
     display: block;
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 2rem;
     cursor: pointer;
   }
 

@@ -3,11 +3,10 @@
     display: grid;
     grid-template-areas: "left right";
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 2rem;
     align-items: center;
     padding: 15rem 2rem;
-    
-
   }
   
 .leftSide {
@@ -41,6 +40,7 @@
     border-radius: 50px;
     gap: 1rem 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds depth */
+    
 }
 
 .rightSide h2 {
@@ -98,7 +98,7 @@
     .aboutSection {
         grid-template-areas: "left" "right";
         grid-template-columns: 1fr;
-        padding-top: 10rem;
+        padding-top: 2rem;
         max-width: 100%;
     }
 
@@ -118,7 +118,7 @@
     .rightSide {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        padding: 1rem;
+        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
         align-items: center;
     }
 
@@ -131,6 +131,7 @@
 
     .rightSide {
         align-items: center;
+        
     }
 
     .leftSide {

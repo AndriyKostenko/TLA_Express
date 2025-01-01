@@ -1,14 +1,26 @@
 :root {
   --background: #f2fbf6;
-  --main-color: #117342;
+  --main-color: #00a960;
   --secondary-color: #af812b;
-  --h1-font-size: 2rem;
+  --h1-font-size: 3.5rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.17rem;
   --p-font-size: 1rem;
 }
 
+@font-face {
+  font-family: 'Matter';
+  src: url('../../public/fonts/matter-font/Matter-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+/* @font-face {
+  font-family: 'Matter';
+  src: url('../../public/fonts/matter-font/Matter-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+} */
 
 html,
 body {
@@ -19,7 +31,7 @@ body {
 body {
   /* color: var(--main-color);
   background: var(--background); */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Matter', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

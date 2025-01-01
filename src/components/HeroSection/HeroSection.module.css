@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas:
         "left right";
-    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-columns: 1fr 1.5fr;
     height: 100%;
     padding-top: 15rem ;
     gap: 1rem;
@@ -32,11 +32,39 @@
 
 
 
+
+
 .heroLeft h1 {
     font-size: var(--h1-font-size);
-    font-weight: 600;
+    font-weight: 300;
     background-clip: text;
     -webkit-background-clip: text;
+    z-index: 4;
+}
+
+.heroLeft h1 span {
+    display: inline-block;
+    animation: rotateWord 3s infinite;
+    font-size: var(--h1-font-size);
+    color: var(--main-color);
+    font-weight: 300;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+@keyframes rotateWord {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
 }
 
 .heroLeft h2 {
@@ -65,7 +93,15 @@
 }
 
 .heroImage2 {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     z-index: 2;
+}
+
+.heroImage2.showHeroImage2 {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .heroImage3 {
@@ -81,14 +117,18 @@
 @media (max-width: 1024px) {
     .heroSection {
         grid-template-areas: 
-            "right"
-            "left";
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+            "left right";
+        grid-template-columns: 0.8fr 1.3fr;
+        grid-template-rows: 1fr;
+        padding-top: 10rem;
     }
 
     .heroLeft h1 {
         font-size: 2rem;
+    }
+
+    .heroLeft h1 span {
+        font-size: 2.2rem;
     }
 
     .heroLeft h2 {
@@ -99,12 +139,6 @@
         font-size: 1.25rem;
     }
 
-
-
-    
-
-
-    
 }
 
 
@@ -117,13 +151,15 @@
         padding: 6rem 1rem 0;
     }
 
-  
-
-    .heroImage {
-        position: static;
-        width: 80%;
+    /* .heroImage {
+        width: 100%;
         height: auto;
+        left: 0;
     }
+    
+    .heroImage2 {
+        transform: translateX(0);
+    } */
 
     .heroLeft h1 {
         font-size: 2.5rem;

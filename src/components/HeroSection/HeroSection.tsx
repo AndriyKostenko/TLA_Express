@@ -7,6 +7,7 @@ import heroImage2 from "../../../public/png_car.png";
 import heroImage3 from "../../../public/amazon-delivery-hero-section-for-website--the-bott.png";
 import heroImage1 from "../../../public/Vector 4.png";
 import { Button } from '../Button/Button';
+import { useEffect, useState } from 'react';
 
 
 
@@ -16,25 +17,38 @@ interface HeroSectionProps {
 
 
 export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
+    const words = ['Seamless', 'Last Mile', 'Quick', 'Reliable'];
+
+    const [showHeroImage2 ,setShowHeroImage2] = useState(false);
+    const [wordIndex, setWordIndex] = useState(0);
+
+    // add a delay to show the second hero image
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowHeroImage2(true);
+        }, 500); // 0.5 second delay
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    // change the word every 3 seconds
+    useEffect(() => {
+        const wordTimer = setTimeout(() => {
+            setWordIndex((wordIndex + 1) % words.length);
+        }, 3000); // 3 second delay
+
+        return () => clearTimeout(wordTimer);
+    }, [wordIndex]);
+
 
 
     return (
         <section className={`${className} ${styles.heroSection}`}>
             <div className={styles.heroLeft}>
                 <h1>
-                    TLA Express Inc.
-                   
+                    Experience <span>{words[wordIndex]}</span> <br></br>Delivery with us. 
                 </h1>
                 <br/>
-                <h2>
-                    Delivery Service Partner with Amazon.
-                </h2>
-                <br/>
-                <p>
-                    We are the last mile delivery company operating in Calgary. 
-                    Our experienced team provides positive last mile delivery experience 
-                    with on time delivery and great customer service.
-                </p>
                 <div className={styles.heroButton}>
                     <Button className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} title='Apply Now'/>
                 </div>
@@ -45,7 +59,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
                 <div className={`${styles.heroImage} ${styles.heroImage1}`}>
                     <Image src={heroImage1} alt="Hero Image 1" fill style={{objectFit: 'contain'}}/>
                 </div>
-                <div className={`${styles.heroImage} ${styles.heroImage2} `}>
+                <div className={`${styles.heroImage} ${styles.heroImage2} ${showHeroImage2 ? styles.showHeroImage2 : ''}`}>
                     <Image src={heroImage2} alt="Hero Image 2" fill style={{objectFit: 'contain'}}/>
                 </div>
                 <div className={`${styles.heroImage} ${styles.heroImage3}`}>
