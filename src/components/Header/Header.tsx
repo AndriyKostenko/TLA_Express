@@ -35,16 +35,37 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
 
       {/* Sidebar */}
       {isSideBarOpen && (
-        <div className={headerStyles.sidebar}>
-          <button className={headerStyles.closeButton} onClick={toggleSideBar}>
-            &times;
-          </button>
-          
-          <Navbar isSidebar={isSideBarOpen}/>
+        
+          <div className={headerStyles.envelope}>
+              {/* <div className={headerStyles.sidebar}>
+                <button className={headerStyles.closeButton} onClick={toggleSideBar}>
+                  &times;
+                </button>
+                
+                <Navbar isSidebar={isSideBarOpen}/>
 
-          <Button title="Apply" className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} />
+                <Button title="Apply" className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} />
 
-        </div>
+              </div> */}
+              <div className={headerStyles.body}>
+                
+                <button className={headerStyles.closeButton} onClick={toggleSideBar}>
+                  &times;
+                </button>
+
+                <Navbar isSidebar={isSideBarOpen}/>
+                <div className={headerStyles.envelopeButtonContainer}>
+                  <Button title="Apply" className={`${buttonStyles.envelopeButton} ${buttonStyles.mainButtonGreen}`} />
+                </div>
+                
+              </div>
+              
+              <div className={headerStyles.flapLeft}></div>
+              <div className={headerStyles.flapRight}></div>
+              <div className={headerStyles.flapBottom}></div>
+              <div className={headerStyles.flapTop}></div>
+          </div>
+        
       )}
 
       {/* Main navbar */}
@@ -56,6 +77,8 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
       <div className={headerStyles.logoContainer}>
         <Image src={logoImg} alt="logo" width={100} height={100} />
       </div>
+
+
 
       {/* Button */}
       <div className={headerStyles.buttonContainer}>

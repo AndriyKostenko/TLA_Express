@@ -16,7 +16,7 @@ export const Navbar:React.FC<NavbarProps> = ({isSidebar}) => {
             {buttons.map((button, index) => (
                 <Button 
                     title={button} 
-                    className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonWithoutBorder}`} 
+                    className={isSidebar ? buttonStyles.envelopeButton : `${buttonStyles.mainButton} ${buttonStyles.mainButtonWithoutBorder}`} 
                     key={index}/>
             ))}
         </nav>

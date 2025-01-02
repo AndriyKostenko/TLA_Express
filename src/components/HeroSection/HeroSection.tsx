@@ -52,6 +52,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
                 <div className={styles.heroButton}>
                     <Button className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} title='Apply Now'/>
                 </div>
+
+  
                 
             </div>
     
