@@ -1,0 +1,27 @@
+.wrapper {
+    display: grid;
+    grid-template-areas: 'left right';
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding-top: 5rem;
+}
+
+.leftArea {
+    grid-area: left;
+    display: flex;
+}
+
+.rightArea {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+
+
+
+
+

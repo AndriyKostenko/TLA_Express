@@ -2,6 +2,7 @@ import { Header } from '../components/Header/Header';
 import { HeroSection } from '../components/HeroSection/HeroSection';
 import { AboutSection } from '../components/AboutSection/AboutSection';
 import { OurTeamSection } from '../components/OurTeamSection/OurTeamSection';
+import { ApplySection } from '@/components/ApplySection/ApplySection';
 
 
 
@@ -16,7 +17,7 @@ export default function Home() {
 				<HeroSection/>
 				<AboutSection/> 
 				<OurTeamSection/>
-				{/* <FormSection/> */}
+				<ApplySection/>
 			</main>  
 			
 			{/* <Footer/> */}
