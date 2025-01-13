@@ -21,6 +21,12 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
   const toggleSideBar = () => {
     setIsSideBarOpen((prev) => !prev);
   }
+
+  const handleNavItemClick = () => {
+    if (isSideBarOpen) {
+      setIsSideBarOpen(false);
+    }
+  }
   
 
   return (
@@ -54,9 +60,11 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
                   &times;
                 </button>
 
-                <Navbar isSidebar={isSideBarOpen}/>
+                <Navbar isSidebar={isSideBarOpen} onNavItemClick={handleNavItemClick}/>
                 <div className={headerStyles.envelopeButtonContainer}>
-                  <Button title="Apply" className={`${buttonStyles.envelopeButton} ${buttonStyles.mainButtonGreen}`} />
+                  <Link href="#apply">
+                    <Button title="Apply" className={`${buttonStyles.envelopeButton} ${buttonStyles.mainButtonGreen}`} />
+                  </Link>
                 </div>
                 
               </div>
@@ -71,7 +79,7 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
 
       {/* Main navbar */}
       <nav className={headerStyles.navbar}>
-        <Navbar isSidebar={isSideBarOpen}/>
+        <Navbar isSidebar={isSideBarOpen} onNavItemClick={handleNavItemClick}/>
       </nav>
       
       {/* logo */}

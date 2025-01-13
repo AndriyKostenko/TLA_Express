@@ -5,10 +5,11 @@ import Link from 'next/link';
 
 interface NavbarProps {
     isSidebar: boolean;
+    onNavItemClick?: () => void;
 }
 
 
-export const Navbar:React.FC<NavbarProps> = ({isSidebar}) => {
+export const Navbar:React.FC<NavbarProps> = ({isSidebar, onNavItemClick}) => {
 
     const navigationItems = [
         { title: 'Home', path: '/' },
@@ -19,7 +20,7 @@ export const Navbar:React.FC<NavbarProps> = ({isSidebar}) => {
     return (
         <nav className={isSidebar ? headerStyles.sidebarNav : headerStyles.navbar}>
             {navigationItems.map((item, index) => (
-              <Link href={item.path} key={index}>
+              <Link href={item.path} key={index} onClick={onNavItemClick}>
                 <Button 
                     title={item.title} 
                     className={isSidebar ? buttonStyles.envelopeButton : `${buttonStyles.mainButton} ${buttonStyles.mainButtonWithoutBorder}`} 
