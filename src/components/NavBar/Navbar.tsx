@@ -1,6 +1,7 @@
 import headerStyles from '../Header/Header.module.css';
 import buttonStyles from '../Button/Button.module.css';
 import { Button } from '../Button/Button';
+import Link from 'next/link';
 
 interface NavbarProps {
     isSidebar: boolean;
@@ -9,15 +10,21 @@ interface NavbarProps {
 
 export const Navbar:React.FC<NavbarProps> = ({isSidebar}) => {
 
-    const buttons = ['Home', 'About Us', 'Contact Us'];
+    const navigationItems = [
+        { title: 'Home', path: '/' },
+        { title: 'About', path: '#about' },
+        { title: 'Our Team', path: '#our-team' },
+    ];
 
     return (
         <nav className={isSidebar ? headerStyles.sidebarNav : headerStyles.navbar}>
-            {buttons.map((button, index) => (
+            {navigationItems.map((item, index) => (
+              <Link href={item.path} key={index}>
                 <Button 
-                    title={button} 
+                    title={item.title} 
                     className={isSidebar ? buttonStyles.envelopeButton : `${buttonStyles.mainButton} ${buttonStyles.mainButtonWithoutBorder}`} 
                     key={index}/>
+                </Link>
             ))}
         </nav>
     )

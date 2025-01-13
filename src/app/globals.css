@@ -15,13 +15,6 @@
   font-style: normal;
 }
 
-/* @font-face {
-  font-family: 'Matter';
-  src: url('../../public/fonts/matter-font/Matter-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-} */
-
 html,
 body {
   max-width: 100vw;
@@ -41,6 +34,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 1rem;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -49,34 +43,6 @@ a {
 }
 
 
-.container {
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-
-
-@media (max-width: 1200px) {
-  .container {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 100%; 
-    padding: 0 10px;
-  }
-}
-
-@media (max-width: 576px) {
-  .container {
-    max-width: 100%;
-    padding: 0 10px;
-  }
-}
 
 
 

@@ -14,7 +14,7 @@ interface OurTeamSectionProps {
 
 export const OurTeamSection:React.FC<OurTeamSectionProps> = ({className}) => {
     return (
-        <section className={`${className} ${ourTeamStyles.wrapper}`}>
+        <section className={`${className} ${ourTeamStyles.wrapper}`} id='our-team'>
             <div className={ourTeamStyles.leftSide}>
                 <h2>Our Team</h2>
                 <p>Meet the dedicated team behind TLA Express, 

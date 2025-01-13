@@ -1,0 +1,83 @@
+.footer {
+    width: 100%;
+    min-height: 100px;
+    background-color: var(--main-color);
+    display: grid;
+    grid-template-areas: "left center right";
+    grid-template-columns: 1fr 1fr 1fr;
+    color: white;
+    margin-top: 5rem;
+}
+
+.footer h3 {
+    color: gold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.leftSection, .centerSection, .rightSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.leftSection p:nth-child(2){
+    margin-bottom: 1rem;
+
+}
+
+.centerSection {
+    grid-area: center;
+}
+
+.centerSection p {
+    margin: 1.5rem;
+}
+
+.centerSection ul li a {
+    color: white;
+    text-decoration: underline;
+}
+
+.rightSection {
+    grid-area: right;
+}
+
+
+.socialLinks {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* For navigation lists */
+.footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: gold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .footer {
+        grid-template-areas: 
+            "left"
+            "center"
+            "right";
+        grid-template-columns: 1fr;
+    }
+}
+
+

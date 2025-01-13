@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Navbar } from "../NavBar/Navbar";
 import { Button } from "../Button/Button";
 import { useState } from "react";
+import Link from "next/link";
 
 
 interface HeaderProps {
@@ -75,14 +76,18 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
       
       {/* logo */}
       <div className={headerStyles.logoContainer}>
-        <Image src={logoImg} alt="logo" width={100} height={100} />
+        <Link href="/">
+          <Image src={logoImg} alt="logo" width={100} height={100} />
+        </Link>
       </div>
 
 
 
       {/* Button */}
       <div className={headerStyles.buttonContainer}>
-        <Button title="Apply" className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} />
+        <Link href="#apply">
+          <Button title="Apply" className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} />
+        </Link>
       </div>
 
       

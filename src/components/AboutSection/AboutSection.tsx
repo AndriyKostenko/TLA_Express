@@ -11,7 +11,7 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({className}) => {
     return (
-        <section className={`${className}  ${aboutStyles.aboutSection}`}>
+        <section className={`${className}  ${aboutStyles.aboutSection}`} id="about">
                 <div className={aboutStyles.leftSide} >
                     <div className={aboutStyles.mainImageContainer}>
                         <Image src={aboutImg} 

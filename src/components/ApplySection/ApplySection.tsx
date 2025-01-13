@@ -219,7 +219,7 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
     };
 
     return (
-        <section className={`${className} ${applyStyles.applySection}`}>
+        <section className={`${className} ${applyStyles.applySection}`} id='apply'>
             
 
                 <div className={applyStyles.leftArea}>
