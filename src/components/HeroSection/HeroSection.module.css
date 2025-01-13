@@ -120,6 +120,7 @@
         grid-template-columns: 0.8fr 1.3fr;
         grid-template-rows: 1fr;
         padding-top: 10rem;
+        height: 650px;
     }
 
     .heroLeft h1 {
@@ -147,18 +148,18 @@
             "right"
             "left";
         grid-template-columns: 1fr;
-        padding: 6rem 1rem 0;
+        gap: 0;
+        padding: 0;
     }
 
-    /* .heroImage {
-        width: 100%;
-        height: auto;
-        left: 0;
+    .heroLeft {
+        align-items: flex-start;
+        padding: 0 1rem;
     }
-    
-    .heroImage2 {
-        transform: translateX(0);
-    } */
+
+    .heroRight {
+        padding: 0 1rem;
+    }
 
     .heroLeft h1 {
         font-size: 2.5rem;
@@ -171,6 +172,8 @@
     .heroLeft p {
         font-size: 1rem;
     }
+
+    
     
 }
 

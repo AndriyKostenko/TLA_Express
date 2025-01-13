@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
 import { Button } from '../Button/Button';
 import buttonStyles from '../Button/Button.module.css';
 import Image from 'next/image';
-import appplyImage from '../../../public/111happy-costumer-received-a-package-- (1).png';
+import appplyImage1 from '../../../public/111happy-costumer-received-a-package-- (1).png';
 
 interface ApplySectionProps {
     className?: string;
@@ -225,7 +225,7 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
                 <div className={applyStyles.leftArea}>
                     
                     <div className={applyStyles.applyImage}>
-                        <Image src={appplyImage} alt="Apply Image 1" fill style={{objectFit: 'contain'}}/>
+                        <Image src={appplyImage1} alt="Apply Image 1" fill style={{objectFit: 'contain'}}/>
                     </div>
                     
                 </div>

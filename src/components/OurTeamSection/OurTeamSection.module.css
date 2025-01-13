@@ -65,6 +65,7 @@
     .wrapper {
         grid-template-areas: "right" "left";
         grid-template-columns: 1fr;
+        padding: 0 1rem;
     }
     .leftSide {
         height: 100%;

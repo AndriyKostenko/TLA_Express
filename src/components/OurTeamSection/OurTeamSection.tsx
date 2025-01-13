@@ -25,7 +25,7 @@ export const OurTeamSection:React.FC<OurTeamSectionProps> = ({className}) => {
 
                 <div className={ourTeamStyles.lottieContainer}>
                     <DotLottieReact src="https://lottie.host/9e80d2d6-b55f-4600-97c3-acf029f4f889/bceQ3FrD7a.json"
-                                    speed={0.5}
+                                    speed={0.8}
                                     loop
                                     autoplay
                                     style={{width: '150px', height: '150px'}}

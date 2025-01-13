@@ -14,6 +14,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    min-height: 200px;
 }
 
 .rightArea {
@@ -27,7 +28,7 @@
 .applyImage {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 300px;
 }
 
 .rightArea h2 {
@@ -42,7 +43,32 @@
 
 
 
+@media (max-width: 768px) {
+    .applySection {
+        grid-template-areas: "left" "right";
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-top: 10rem;
+    }
 
+    .leftArea {
+        height: 100%;
+        padding-bottom: 2rem;
+    }
+
+    .rightArea {
+        padding-top: 2rem;
+    }
+    
+    .applyImage {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 300px;
+        margin: 0 auto ;
+    }
+    
+}
 
 
 
