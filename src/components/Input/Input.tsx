@@ -9,7 +9,6 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     error?: string;
     fullWidth?: boolean;
     onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-
 }
 
 

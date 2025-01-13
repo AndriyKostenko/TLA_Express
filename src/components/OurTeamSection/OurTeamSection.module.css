@@ -2,7 +2,9 @@
     display: grid;
     grid-template-areas: "left right";
     grid-template-columns: 1fr 1fr;
-    padding: 3rem 2rem;
+    padding-top: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     gap: 2rem;
 }
 
@@ -27,7 +29,7 @@
 
 .rightSide {
     grid-area: right;
-    height: 450px;
+    height: 500px;
     
 }
 
@@ -37,6 +39,10 @@
     height: 100%;
     overflow: hidden;
 
+}
+
+.lottieContainer {
+    margin-top: 1rem; /* Add some margin to separate from the text */
 }
 
 

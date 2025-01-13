@@ -6,6 +6,8 @@ import { ChangeEvent, FormEvent, useRef, useState, KeyboardEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { Button } from '../Button/Button';
 import buttonStyles from '../Button/Button.module.css';
+import Image from 'next/image';
+import appplyImage from '../../../public/111happy-costumer-received-a-package-- (1).png';
 
 interface ApplySectionProps {
     className?: string;
@@ -14,14 +16,14 @@ interface ApplySectionProps {
 interface FormData {
     email: string | null;
     phoneNumber: string | null;
-    uploadResume: File | null;
+    uploadCV: File | null;
     buttonText: string;
 }
 
 interface Errors {
     email: string;
     phoneNumber: string;
-    uploadResume: string;
+    uploadCV: string;
     buttonText: string;
 }
 
@@ -35,15 +37,15 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
     const [formData, setFormData] = useState<FormData>({
         email: '',
         phoneNumber:'',
-        uploadResume: null,
+        uploadCV: null,
         buttonText: 'Apply'
     });
 
     const [errors, setErrors] = useState<Errors>({
         email: '',
         phoneNumber: '',
-        uploadResume: '',
-        buttonText: '',
+        uploadCV: '',
+        buttonText: ''
     });
 
     const [focused, setFocused] = useState(false);
@@ -55,9 +57,6 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Destructure the event object
         const {name, value, type} = event.target;
-        // console.log('name:', name);
-        // console.log('value:', value);
-        // console.log('type:', type);
         
         
         // If the input type is checkbox, then set the checked value
@@ -77,37 +76,45 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
 
     // validate form for empty fields
     const validate = () => {
+        // Create new errors object
         const newErrors = {
             email: '',
             phoneNumber: '',
-            uploadResume: '',
+            uploadCV: '',
             buttonText: ''
         };
 
+        const ERROR_MESSAGES = {
+            EMAIL_REQUIRED: 'Email is required',
+            PHONE_NUMBER_REQUIRED: 'Phone number is required',
+            EMAIL_INVALID: 'Email is invalid',
+            FILE_INVALID: (size: string) => `The file is not .pdf/.word format or bigger than 50 KB. File size: ${size} KB`,
+            FILE_REQUIRED: 'Resume is required'
+
+        };
+    
+        // Collect all validation errors
         if (!formData.email) {
-            newErrors.email = 'Email is required';
+            newErrors.email = ERROR_MESSAGES.EMAIL_REQUIRED;
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = ERROR_MESSAGES.EMAIL_INVALID;
         }
-
+    
         if (!formData.phoneNumber) {
-            newErrors.phoneNumber = 'Phone number is required';
+            newErrors.phoneNumber = ERROR_MESSAGES.PHONE_NUMBER_REQUIRED;
         }
-
-        if (!formData.uploadResume) {
-            newErrors.uploadResume = 'Resume is required';
+    
+        if (!formData.uploadCV) {
+            newErrors.uploadCV = ERROR_MESSAGES.FILE_REQUIRED;
+        } else if (!isFileTypeAllowed(formData.uploadCV)) {
+            newErrors.uploadCV = ERROR_MESSAGES.FILE_INVALID(fileSize(formData.uploadCV));
         }
-
+    
+        // Set all errors at once
         setErrors(newErrors);
-
-        // console.log('New Errors:', newErrors);
-
-        // return Object.keys(newErrors).length === 0;
-
-        // Check if there are any errors
-        const isValid = Object.values(newErrors).every(error => error === '');
-        console.log('Form is valid:', isValid);
-
-        return isValid;
-    }
+    
+        return Object.values(newErrors).every(error => error === '');
+    };
 
     // handling file change and checking if its pdf or word and not bigger then 50 kb
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -118,23 +125,33 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
             if (isFileTypeAllowed(file)) {
                 setFormData({
                     ...formData,
-                    uploadResume: file
+                    uploadCV: file
                 });
+
+                // Clear the error message
+                setErrors({...errors, uploadCV: ''});
             } else {
-                setErrors({...errors, uploadResume: 'The file is not \'.pdf\' or \'.word\' format or bigger then 50 KB.'});
+                setErrors({...errors, uploadCV: `The file is not .pdf/.word format or bigger than 50 KB. File size: ${fileSize(file)} KB`});
             }
         }
     }
 
     // checking if file is pdf or word and not bigger then 50 kb
     const isFileTypeAllowed = (file: File | null) => {
+        const MAX_FILE_SIZE = 50 * 1024; // 50 kbs
+        console.log('File size:', file?.size);
+        
         if (!file) {
             return false;
         }
         const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-        const maxSize = 50 * 1024; // 50 kbs 
-        // 50 kb max size
-        return (allowedTypes.includes(file.type) && file.size <= maxSize);
+        
+        return (allowedTypes.includes(file.type) && file.size <= MAX_FILE_SIZE);
+    }
+
+    const fileSize = (file: File) => {
+        const size = file.size / 1024;
+        return size.toFixed(2);
     }
 
     // handling form submit
@@ -146,17 +163,6 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
         const apiKey = process.env.NEXT_PUBLIC_API_PUBLIC_KEY;
         const currentForm = form.current;
 
-        // Debug logs
-        console.log('Form Data:', formData);
-        console.log('Validation Result:', validate());
-        console.log('Environment Variables:', {
-            serviceId,
-            templateId,
-            apiKeyExists: !!apiKey
-        });
-        console.log('Form Reference:', currentForm);
-
-        // Detailed validation
         if (!validate()) {
             console.error('Form validation failed');
             return;
@@ -177,7 +183,7 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
 
         // Send the form data to the emailjs service
         emailjs.sendForm(serviceId, templateId, currentForm, apiKey)
-        .then((result) => {
+        .then(() => {
             setFormData({...formData, buttonText: 'Sent !'});
             //setFocused(false);
             event.target.reset();
@@ -186,8 +192,7 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
             }, 3000); // Reset the button text after 3 seconds
         }, (error) => {
             console.log(error.text);
-            setFormData({...formData, buttonText: 'Failed...'});
-            //setFocused(false);
+            setFormData({...formData, buttonText: 'Failed !'});
             event.target.reset();
             setTimeout(() => {
                 setFormData({...formData, buttonText: 'Apply'});
@@ -215,18 +220,25 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
 
     return (
         <section className={`${className} ${applyStyles.applySection}`}>
-            <div className={applyStyles.wrapper}>
+            
 
                 <div className={applyStyles.leftArea}>
-                            <h2 className={applyStyles.title}>Apply for the job</h2>
-                            <p className={applyStyles.description}>Please fill out the form below to apply for the job.</p>
+                    
+                    <div className={applyStyles.applyImage}>
+                        <Image src={appplyImage} alt="Apply Image 1" fill style={{objectFit: 'contain'}}/>
+                    </div>
+                    
                 </div>
                 
                 <form ref={form} 
                       onSubmit={handleSubmit}
-                      encType='multipart/form-data'
+                      encType="multipart/form-data"
                       className={applyStyles.rightArea}
-                      method='post'>
+                      method="post"
+                      noValidate>
+
+                    <h2 className={applyStyles.title}>Apply for the job</h2>
+                    <p className={applyStyles.description}>Please fill out the form below to apply for the job.</p>
 
                     <Input 
                         type='text'
@@ -240,7 +252,6 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
                         onKeyDown={handleKeyDown}
                         maxLength={MAX_PHONE_LENGTH}/>
                 
-                
                     <Input 
                         type='email'
                         label='Email'
@@ -251,28 +262,22 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
                         id='email'
                         maxLength={MAX_EMAIL_LENGTH}/>
                 
-
-                
                     <Input 
-                        type='file'
+                        type="file"
                         label='Resume'
-                        error={errors.uploadResume}
+                        error={errors.uploadCV}
                         placeholder='Upload your resume'
                         onChange={(event) => handleFileChange(event)}
                         onFocus={handleFocus}
-                        id='uploadResume'
-                        name='uploadResume'/> 
-                 
+                        id="uploadCV"
+                        name="uploadCV"
+                        accept=".pdf,.docx,.doc"/>
 
+                 
                     <div>
                         <Button type='submit' title={formData.buttonText} className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`}/>
                     </div>
-                    
-                
-
-                    
                 </form>
-            </div>
         </section>
     )
 }

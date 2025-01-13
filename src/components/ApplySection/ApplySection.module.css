@@ -1,14 +1,19 @@
-.wrapper {
+.applySection {
     display: grid;
     grid-template-areas: 'left right';
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    padding-top: 5rem;
+    padding-top: 15rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .leftArea {
     grid-area: left;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .rightArea {
@@ -18,6 +23,24 @@
     justify-content: center;
     gap: 1rem;
 }
+
+.applyImage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.rightArea h2 {
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+
+.description {
+    padding-bottom: 1rem;
+}
+
+
+
 
 
 

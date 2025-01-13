@@ -2,11 +2,14 @@
 .aboutSection {
     display: grid;
     grid-template-areas: "left right";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 1.2fr;
     grid-template-rows: 1fr;
     gap: 2rem;
     align-items: center;
-    padding: 15rem 2rem;
+    padding: 15rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
   }
   
 .leftSide {
@@ -14,7 +17,7 @@
     position: relative;
     height: 350px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -26,9 +29,7 @@
     overflow: hidden;
 }
 
-.mainImage {
-    border-radius: 50px;
-}
+
 
 .rightSide {
     padding: 2rem 2rem 2rem 2rem; 

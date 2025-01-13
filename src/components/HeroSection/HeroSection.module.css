@@ -3,7 +3,6 @@
     grid-template-areas:
         "left right";
     grid-template-columns: 1fr 1.5fr;
-    height: 100%;
     padding-top: 15rem ;
     gap: 1rem;
     height: 700px;
@@ -15,8 +14,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 2rem;
-    /* margin-top: auto; */
+    padding: 0 5rem;
+    margin-top: auto;
 }
 
 .heroRight {
