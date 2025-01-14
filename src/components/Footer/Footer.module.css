@@ -78,6 +78,12 @@
             "right";
         grid-template-columns: 1fr;
     }
+
+    .rightSection {
+        margin-bottom: 1rem;
+    }
+
+
 }
 
 

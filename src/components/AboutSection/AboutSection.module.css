@@ -122,8 +122,9 @@
         grid-template-rows: 1fr 1fr 1fr;
         padding: 1.5rem 1.5rem 1.5rem 1.5rem;
         align-items: center;
-        height: 500px;
+        height: 400px;
     }
+
 
 }
 

@@ -1,11 +1,11 @@
 "use client";
 
 import headerStyles from "./Header.module.css";
-import buttonStyles from "../Button/Button.module.css";
+import buttonStyles from "../Common/Button/Button.module.css";
 import logoImg from "../../../public/logo_2.png";
 import Image from "next/image";
 import { Navbar } from "../NavBar/Navbar";
-import { Button } from "../Button/Button";
+import { Button } from "../Common/Button/Button";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -54,7 +54,7 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
                 <Button title="Apply" className={`${buttonStyles.mainButton} ${buttonStyles.mainButtonGreen}`} />
 
               </div> */}
-              <div className={headerStyles.body}>
+              <div className={headerStyles.envelopeBody}>
                 
                 <button className={headerStyles.closeButton} onClick={toggleSideBar}>
                   &times;
@@ -63,7 +63,9 @@ export const Header:React.FC<HeaderProps> = ({className}) => {
                 <Navbar isSidebar={isSideBarOpen} onNavItemClick={handleNavItemClick}/>
                 <div className={headerStyles.envelopeButtonContainer}>
                   <Link href="#apply">
-                    <Button title="Apply" className={`${buttonStyles.envelopeButton} ${buttonStyles.mainButtonGreen}`} />
+                    <Button title="Apply" 
+                            className={`${buttonStyles.envelopeButton} ${buttonStyles.mainButtonGreen}`} 
+                            onClick={handleNavItemClick}/>
                   </Link>
                 </div>
                 

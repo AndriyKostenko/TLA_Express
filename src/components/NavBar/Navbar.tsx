@@ -1,6 +1,6 @@
 import headerStyles from '../Header/Header.module.css';
-import buttonStyles from '../Button/Button.module.css';
-import { Button } from '../Button/Button';
+import buttonStyles from '../Common/Button/Button.module.css';
+import { Button } from '../Common/Button/Button';
 import Link from 'next/link';
 
 interface NavbarProps {

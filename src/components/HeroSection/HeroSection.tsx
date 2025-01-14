@@ -1,12 +1,12 @@
 "use client";
 
 import styles from './HeroSection.module.css';
-import buttonStyles from '../Button/Button.module.css';
+import buttonStyles from '../Common/Button/Button.module.css';
 import Image from 'next/image';
 import heroImage2 from "../../../public/png_car.png";
 import heroImage3 from "../../../public/amazon-delivery-hero-section-for-website--the-bott.png";
 import heroImage1 from "../../../public/Vector 4.png";
-import { Button } from '../Button/Button';
+import { Button } from '../Common/Button/Button';
 import { useEffect, useState } from 'react';
 
 

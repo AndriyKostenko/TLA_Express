@@ -17,14 +17,21 @@ export const Input:React.FC<InputProps> = ({
     label,
     error,
     fullWidth=false,
+    type,
+    name,
+    id,
      ...props}) => {
     return (
         <div className={inputStyles.wrapper}>
             {label && <label className={inputStyles.label}>{label}</label>}
             <input className={`${className} 
                             ${inputStyles.input}
+                            ${type === 'file' ? inputStyles.fileInput : ''}
                             ${fullWidth ? inputStyles.fullWidth : ''}
-                            ${error ? inputStyles.error : ''}`} 
+                            ${error ? inputStyles.error : ''}`}
+                    type={type}
+                    name={name}
+                    id={id}
                         
                             {...props}
             />

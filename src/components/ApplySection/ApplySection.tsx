@@ -1,11 +1,11 @@
 "use client";
 
 import applyStyles from './ApplySection.module.css';
-import { Input } from '../Input/Input';
+import { Input } from '../Common/Input/Input';
 import { ChangeEvent, FormEvent, useRef, useState, KeyboardEvent } from 'react';
 import emailjs from '@emailjs/browser';
-import { Button } from '../Button/Button';
-import buttonStyles from '../Button/Button.module.css';
+import { Button } from '../Common/Button/Button';
+import buttonStyles from '../Common/Button/Button.module.css';
 import Image from 'next/image';
 import appplyImage1 from '../../../public/111happy-costumer-received-a-package-- (1).png';
 

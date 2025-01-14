@@ -1,6 +1,7 @@
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     title: string;
     className?: string; // Make className optional if it's not always required
+    
 }
 
 
