@@ -43,7 +43,6 @@
 
 .heroLeft h1 span {
     display: inline-block;
-    animation: rotateWord 3s infinite;
     font-size: var(--h1-font-size);
     color: var(--main-color);
     font-weight: 300;
@@ -51,20 +50,39 @@
     -webkit-background-clip: text;
 }
 
-@keyframes rotateWord {
+.fadeOut {
+    animation: fadeOut 2.0s forwards;
+}
+
+.fadeIn {
+    animation: fadeIn 2.0s forwards;
+}
+
+
+@keyframes fadeIn {
     0% {
         opacity: 0;
         transform: translateY(100%);
     }
-    50% {
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     100% {
         opacity: 0;
         transform: translateY(-100%);
     }
 }
+
 
 .heroLeft h2 {
     font-size: var(--h2-font-size);
