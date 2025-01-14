@@ -8,6 +8,8 @@ import { Button } from '../Common/Button/Button';
 import buttonStyles from '../Common/Button/Button.module.css';
 import Image from 'next/image';
 import appplyImage1 from '../../../public/111happy-costumer-received-a-package-- (1).png';
+import toast from 'react-hot-toast';
+
 
 interface ApplySectionProps {
     className?: string;
@@ -48,11 +50,8 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
         buttonText: ''
     });
 
-    const [focused, setFocused] = useState(false);
-
-    const form = useRef(null);
-
-
+    // Create a reference to the form element
+    const form = useRef<HTMLFormElement>(null);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Destructure the event object
@@ -184,25 +183,26 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
         // Send the form data to the emailjs service
         emailjs.sendForm(serviceId, templateId, currentForm, apiKey)
         .then(() => {
-            setFormData({...formData, buttonText: 'Sent !'});
-            //setFocused(false);
-            event.target.reset();
+            toast.success('Application sent successfully');
+            setFormData({
+                ...formData, 
+                buttonText: 'Sent !',
+                email: '',
+                phoneNumber: '',
+                uploadCV: null});
+            currentForm.reset();
             setTimeout(() => {
                 setFormData({...formData, buttonText: 'Apply'});
             }, 3000); // Reset the button text after 3 seconds
         }, (error) => {
+            toast.error('Failed to send application');
             console.log(error.text);
             setFormData({...formData, buttonText: 'Failed !'});
-            event.target.reset();
+            currentForm.reset();
             setTimeout(() => {
                 setFormData({...formData, buttonText: 'Apply'});
             }, 3000); // Reset the button text after 3 seconds
         });
-    }
-
-    // setting focus to clear data after sending info
-    const handleFocus = () => {
-        setFocused(true);
     }
 
         
@@ -245,7 +245,6 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
                         label='Phone number'
                         placeholder='Enter your phone number'
                         onChange={(event) => handleChange(event)}
-                        onFocus={handleFocus}
                         error={errors.phoneNumber}
                         name='phoneNumber'
                         id='phoneNumber'
@@ -268,7 +267,6 @@ export const ApplySection: React.FC<ApplySectionProps> = ({className}) => {
                         error={errors.uploadCV}
                         placeholder='Upload your resume'
                         onChange={(event) => handleFileChange(event)}
-                        onFocus={handleFocus}
                         id="uploadCV"
                         name="uploadCV"
                         accept=".pdf,.docx,.doc"/>

@@ -38,7 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({className}) => {
         }, 3000); // 3 second delay
 
         return () => clearTimeout(wordTimer);
-    }, [wordIndex]);
+    }, [wordIndex, words.length]);
 
 
 
